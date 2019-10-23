@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node lib/app.js",
     "lint": "eslint src/**/* tests/**/*",
-    "test": "jest ./tests; npm run lint;",
+    "test": "jest ./tests",
     "build": "tsc"
   },
   "repository": {
