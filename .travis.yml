@@ -4,27 +4,40 @@ cache:
 addons:
   sonarcloud:
     organization: admitech
+
+stages:
+  - tests
 jobs:
   include:
   - stage: tests
+    name: tests and sonar analysis
     install:
     - npm install
     script:
       - npm test
       - sonar-scanner -D sonar.login=$SONAR_TOKEN
-  - stage: lint
+  - stage: tests
+    name: lint
     install:
     - npm install
     script: npm run lint
-  - stage: compile
+  - stage: tests
+    name: compile
+    install:
+    - npm install
     script: npm build
 
 deploy:
-  provider: script
-  skip_cleanup: true
-  script: bash .travis/deploy.sh
-  on:
-    branch: master
+  - provider: script
+    skip_cleanup: true
+    script: bash .travis/deploy.sh staging
+    on:
+      branch: dev
+  - provider: script
+    skip_cleanup: true
+    script: bash .travis/deploy.sh production
+    on:
+      branch: master
 
 env:
   global:
