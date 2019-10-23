@@ -2,10 +2,11 @@
   "name": "recruitytech",
   "version": "0.0.1",
   "description": "Recrutment platform for IG & DO courses in Polytech Montpellier",
-  "main": "app.js",
+  "main": "lib/app.js",
   "scripts": {
-"start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node lib/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,12 @@
   "homepage": "https://github.com/ThomasF34/recruityTech#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.19",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
   }
 }
