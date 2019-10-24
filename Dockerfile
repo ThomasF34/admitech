@@ -1,4 +1,17 @@
-FROM node:10
+FROM node:12
+
+WORKDIR /etc/datadog-agent
+
+ARG DD_API_KEY
+ENV DD_SITE="datadoghq.eu"
+ENV DD_INSTALL_ONLY=true
+RUN bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
+
+RUN echo "logs_enabled: true\nprocess_config:\nenabled: 'disabled'" >> datadog.yaml
+
+WORKDIR	/etc/datadog-agent/conf.d
+
+COPY ./datadog/conf.d/nodejs.d ./nodejs.d
 
 WORKDIR /usr/src/app
 
@@ -9,4 +22,4 @@ RUN npm run build
 
 EXPOSE 8080
 
-CMD ["npm",  "start"]
+CMD ./run.sh

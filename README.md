@@ -6,3 +6,10 @@ Recrutment platform for IG & DO courses in Polytech Montpellier
 
 Team : Lucas Gonçalves, Inès Missoum, Fatima Machhouri, Thomas Falcone, Raphael
 Luciano, Martin Cayuelas
+
+# Deploy 
+
+```
+docker-options:add api.admitech build --build-arg "DD_API_KEY=<datadog api key>"
+config:set api.admitech DD_API_KEY=<datadog api key>
+```
