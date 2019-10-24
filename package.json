@@ -20,11 +20,15 @@
   },
   "homepage": "https://github.com/ThomasF34/admitech#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "connect-datadog": "0.0.9",
+    "express": "^4.17.1",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@types/connect-datadog": "0.0.4",
     "@types/express": "^4.17.1",
     "@types/jest": "^24.0.19",
+    "@types/winston": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "^2.5.0",
     "eslint": "^6.5.1",
