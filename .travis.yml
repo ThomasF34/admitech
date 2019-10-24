@@ -1,3 +1,6 @@
+language: node_js
+node_js: 12
+
 cache:
   directories:
   - "$HOME/.sonar/cache"
@@ -14,20 +17,14 @@ jobs:
   include:
   - stage: tests
     name: tests and sonar analysis
-    install:
-    - npm install
     script:
       - npm test
       - sonar-scanner -D sonar.login=$SONAR_TOKEN
   - stage: tests
     name: lint
-    install:
-    - npm install
     script: npm run lint
   - stage: tests
     name: compile
-    install:
-    - npm install
     script: npm build
   - stage: deploy
     name: :ship:to dokku
