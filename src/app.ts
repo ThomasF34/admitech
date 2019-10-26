@@ -1,11 +1,11 @@
 import express from 'express';
 import { createLogger, format, transports } from 'winston';
+import connectDatadog from 'connect-datadog';
 
 const dd_options = {
   'response_code': true,
-  'tags': ['app:admitech']
+  'tags': ['app:APP_NAME']
 };
-import connectDatadog from 'connect-datadog';
 
 const app = express();
 const port = 3000;
@@ -22,7 +22,7 @@ const logger = createLogger({
     format.splat(),
     format.json()
   ),
-  defaultMeta: { service: 'admitech-back' },
+  defaultMeta: { service: 'APP_NAME' },
   transports: [
     new transports.File({ filename: 'logs/test.log' })
   ]

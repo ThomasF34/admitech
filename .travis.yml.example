@@ -27,7 +27,7 @@ jobs:
     name: compile
     script: npm build
   - stage: deploy
-    name: :ship:to dokku
+    name: ship to dokku
     script: skip
     before_deploy:
     - openssl aes-256-cbc -K $encrypted_7d71b9d7d791_key -iv $encrypted_7d71b9d7d791_iv -in deploy.key.enc -out deploy.key -d
