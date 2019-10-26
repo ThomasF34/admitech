@@ -13,5 +13,4 @@ For information:
 ```
 docker-options:add api.admitech build --build-arg "DD_API_KEY=<datadog api key>"
 config:set api.admitech DD_API_KEY=<datadog api key>
-proxy:ports-add api.admitech http:80:8080
-```
+proxy:ports-add api.admitech http:80:3000
