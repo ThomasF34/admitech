@@ -10,6 +10,6 @@ Luciano, Martin Cayuelas
 # Deploy 
 
 ```
-docker-options:add api.admitech build --build-arg "DD_API_KEY=<datadog api key>"
-config:set api.admitech DD_API_KEY=<datadog api key>
+docker-options:add api-admitech build --build-arg "DD_API_KEY=<datadog api key>"
+config:set api-admitech DD_API_KEY=<datadog api key>
 ```
